@@ -10,19 +10,19 @@
       >
       </el-input>
       <el-tabs v-model="activeName">
-        <el-tab-pane :label="$t('msg.article.markdown')" name="markdown">
-          <markdown
-            :title="title"
-            :detail="detail"
-            @onSuccess="onSuccess"
-          ></markdown>
-        </el-tab-pane>
         <el-tab-pane :label="$t('msg.article.richText')" name="editor">
           <editor
             :title="title"
             :detail="detail"
             @onSuccess="onSuccess"
           ></editor>
+        </el-tab-pane>
+        <el-tab-pane :label="$t('msg.article.markdown')" name="markdown">
+          <markdown
+            :title="title"
+            :detail="detail"
+            @onSuccess="onSuccess"
+          ></markdown>
         </el-tab-pane>
       </el-tabs>
     </el-card>
@@ -36,7 +36,7 @@ import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { articleDetail } from '@/api/article'
 
-const activeName = ref('markdown')
+const activeName = ref('editor')
 const title = ref('')
 
 // 创建成功
