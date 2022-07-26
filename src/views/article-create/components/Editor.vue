@@ -11,7 +11,7 @@
 
 <script setup>
 import E from 'wangeditor'
-import { onMounted, defineProps, defineEmits, watch } from 'vue'
+import { onMounted, watch } from 'vue'
 import i18next from 'i18next'
 import { useStore } from 'vuex'
 import { commitArticle, editArticle } from './commit'
@@ -56,7 +56,7 @@ const initEditor = () => {
 // 编辑相关
 watch(
   () => props.detail,
-  val => {
+  (val) => {
     if (val && val.content) {
       editor.txt.html(val.content)
     }

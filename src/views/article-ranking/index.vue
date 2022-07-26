@@ -89,7 +89,7 @@ onMounted(() => {
 /**
  * size 改变触发
  */
-const handleSizeChange = currentSize => {
+const handleSizeChange = (currentSize) => {
   size.value = currentSize
   getListData()
 }
@@ -97,7 +97,7 @@ const handleSizeChange = currentSize => {
 /**
  * 页码改变触发
  */
-const handleCurrentChange = currentPage => {
+const handleCurrentChange = (currentPage) => {
   page.value = currentPage
   getListData()
 }
@@ -106,13 +106,13 @@ const handleCurrentChange = currentPage => {
  * 查看按钮点击事件
  */
 const router = useRouter()
-const onShowClick = row => {
+const onShowClick = (row) => {
   router.push(`/article/${row._id}`)
 }
 
 // 删除用户
 const i18n = useI18n()
-const onRemoveClick = row => {
+const onRemoveClick = (row) => {
   ElMessageBox.confirm(
     i18n.t('msg.article.dialogTitle1') +
       row.title +
@@ -144,7 +144,7 @@ const onRemoveClick = row => {
     }
   }
 
-  ::v-deep .el-table__row {
+  :deep(.el-table__row) {
     cursor: pointer;
   }
 
@@ -154,7 +154,7 @@ const onRemoveClick = row => {
   }
 }
 
-::v-deep .sortable-ghost {
+:deep(.sortable-ghost) {
   opacity: 0.6;
   color: #fff !important;
   background: #304156 !important;

@@ -14,7 +14,7 @@
 import MkEditor from '@toast-ui/editor'
 import '@toast-ui/editor/dist/toastui-editor.css'
 import '@toast-ui/editor/dist/i18n/zh-cn'
-import { onMounted, defineProps, defineEmits, watch } from 'vue'
+import { onMounted, watch } from 'vue'
 import { useStore } from 'vuex'
 import { watchSwitchLang } from '@/utils/i18n'
 import { commitArticle, editArticle } from './commit'
@@ -64,7 +64,7 @@ watchSwitchLang(() => {
 // 编辑相关
 watch(
   () => props.detail,
-  val => {
+  (val) => {
     if (val && val.content) {
       mkEditor.setHTML(val.content)
     }
